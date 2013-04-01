@@ -25,5 +25,5 @@ fi
                 
 eval PR_HOST='${PR_WHITE}%M${PR_NO_COLOR}'
                 
-PROMPT=$'[${PR_USER}@${PR_HOST}]-[${PR_BLUE}%~${PR_NO_COLOR}]$PR_USER_OP'
+PROMPT=$'[${PR_USER}@${PR_HOST}]-[${PR_BLUE}%~${PR_NO_COLOR}]$PR_USER_OP '
 
