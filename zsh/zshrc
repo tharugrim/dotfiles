@@ -3,174 +3,40 @@
 # Author:   Tobias "Tharugrim" Patzl                    
 #-------------------------------------------------------#
 
-
 #------------------------------
 # Prompt
 #------------------------------
+source $HOME/.zsh/prompts/simple.zsh
 
-
-
-setprompt () {
-	# load some modules
-	autoload -U colors zsh/terminfo # Used in the colour alias below
-	colors
-	setopt prompt_subst
-    export PR_BLUE=$'%{\e[1;34m%}'
-    export PR_RED=$'%{\e[1;31m%}'
-    export PR_GREEN=$'%{\e[1;32m%}'
-    export PR_CYAN=$'%{\e[1;36m%}'
-    export PR_WHITE=$'%{\e[1;37m%}'
-    export PR_MAGENTA=$'%{\e[1;35m%}'
-    export PR_YELLOW=$'%{\e[1;33m%}'
-    export PR_NO_COLOR=$'%{\e[0m%}'
-
-	# Check the UID
-	if [[ $UID -ge 1000 ]]; then # normal user
-		eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}'
-		eval PR_USER_OP='${PR_GREEN}%#${PR_NO_COLOR}'
-	elif [[ $UID -eq 0 ]]; then # root
-		eval PR_USER='${PR_RED}%n${PR_NO_COLOR}'
-		eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
-	fi	
-
-	# Check if we are on SSH or not
-	if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then 
-		eval PR_HOST='${PR_YELLOW}%M${PR_NO_COLOR}' #SSH
-	else 
-		eval PR_HOST='${PR_WHITE}%M${PR_NO_COLOR}' # no SSH
-	fi
-	# set the prompt
-	PS1=$'${PR_NO_COLOR}[${PR_USER}${PR_NO_COLOR}@${PR_HOST}${PR_NO_COLOR}][${PR_BLUE}%~${PR_NO_COLOR}]${PR_USER_OP} '
-	PS2=$'%_>' 
-} 
-
-if [ $DISPLAY  ]; then
-    #. /usr/share/zsh/site-contrib/powerline.zsh
-    #setprompt
-else
-    #setprompt
-fi
-
-autoload -U promptinit
-promptinit
-#------------------------------
-# Source
-#------------------------------
-. $HOME/.zsh/functions/x.zsh
 #------------------------------
 # History
 #------------------------------
-setopt extended_history hist_ignore_all_dups hist_ignore_space 
-setopt hist_no_functions hist_reduce_blanks share_history
-setopt inc_append_history
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=4000
+source $HOME/.zsh/history.zsh
+
 #------------------------------
-# Variables
+# Environment
 #------------------------------
-export BROWSER="luakit"
-export EDITOR="vim"
-#export PAGER="vimpager"
-export PATH="${PATH}:${HOME}/bin"
-export PYTHONPATH=/usr/lib/python3.3/site-packages
+source $HOME/.zsh/environment.zsh
 
 #-----------------------------
-# Options 
+# Keybindings
 #-----------------------------
+source $HOME/.zsh/keybindings.zsh
 
 #------------------------------
-# Alias 
+# Functions
 #------------------------------
+source $HOME/.zsh/functions/x.zsh
 
-hash -d weelog=$HOME/.weechat/logs/
-hash -d units=/usr/lib/systemd/system/
-hash -d userunits=$HOME/.config/systemd/user
-
-alias ls="ls --color=auto -F"
-alias ll="ls --color=auto -lh"
-alias ..="cd .."
-alias ...="cd ..; cd ..:"
-alias dbgh="cp /home/tobias/documents/c/debug/dbg.h ./"
-
-alias cower="cower --color"
-
-# Pacman alias examples
- alias pacupg='sudo pacman-color -Syu'   
- alias pacin='sudo pacman-color -S'  
- alias pacins='sudo pacman-color -U' 
- alias pacre='sudo pacman-color -R'
- alias pacrem='sudo pacman-color -Rns'
- alias pacrep='pacman-color -Si'        
- alias pacreps='pacman-color -Ss'   
- alias pacloc='pacman-color -Qi'  
- alias paclocs='pacman-color -Qs'
-
- # Additional pacman alias examples
- alias pacupd='sudo pacman-color -Sy && sudo abs'  
- alias pacinsd='sudo pacman-color -S --asdeps'    
- alias pacmir='sudo pacman-color -Syy'  
-
-alias mutt-gmail="mutt -F /home/tobias/.mutt/muttrc-gmail"
-alias mutt-zoho="mutt -F /home/tobias/.mutt/muttrc-zoho"
-alias -g sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 #------------------------------
-# Comp stuff
+# Aliases
 #------------------------------
-zmodload zsh/complist 
-autoload -Uz compinit
-compinit
-setopt completealiases
+source $HOME/.zsh/aliases.zsh
 
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
-
-zstyle ':completion:*' accept-exact '*(N)'
-
-zstyle ':completion:*' menu select
-
-zstyle ':completion:*:functions' ignored-patterns '_*'
-
-zstyle :compinstall filename '${HOME}/.zshrc'
-
-#- buggy
-#zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
-#zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
-#-/buggy
-
-zstyle ':completion:*:pacman:*' force-list always
-zstyle ':completion:*:*:pacman:*' menu yes select
-
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*'   force-list always
-
-zstyle ':completion:*:*:killall:*' menu yes select
-zstyle ':completion:*:killall:*'   force-list always
-
-#- complete pacman-color the same as pacman
-compdef _pacman pacman-color=pacman
-
-zstyle ':completion:*' completer _complete _match _approximate
-zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
-
-
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end  history-search-end
-
-
-bindkey "$terminfo[kcbt]" reverse-menu-complete
-
-bindkey '^xp'   history-beginning-search-backward-end
-#k# search history forward for entry beginning with typed text
-bindkey '^xP'   history-beginning-search-forward-end
-#k# search history backward for entry beginning with typed text
-bindkey "\e[5~" history-beginning-search-backward-end # PageUp
-#k# search history forward for entry beginning with typed text
-bindkey "\e[6~" history-beginning-search-forward-end  # PageDown
-
+#------------------------------
+# zstyles
+#------------------------------
+source $HOME/.zsh/zstyles.zsh
 
 #------------------------------
 # Colors 
@@ -183,30 +49,3 @@ export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
 export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
-
-
-#------------------------------
-# Prompt
-#------------------------------
-
-#setopt prompt_subst
-#autoload -Uz vcs_info
-#zstyle ':vcs_info:*' actionformats \
-#    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-#zstyle ':vcs_info:*' formats       \
-#    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-#zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-#
-#zstyle ':vcs_info:*' enable git cvs svn
-
-# or use pre_cmd, see man zshcontrib
-#vcs_info_wrapper() {
-#  vcs_info
-#  if [ -n "$vcs_info_msg_0_" ]; then
-#    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
-#  fi
-#}
-#RPROMPT=$'$(vcs_info_wrapper)'
-#RPROMPT="Write python Maildir viewer;"
-
-
