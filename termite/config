@@ -10,10 +10,11 @@ dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
 #font = Anonymous Pro 11
-#font = Source Code Pro for Powerline 8
+#font = DejaVu Sans Mono 8
+#font = Source Code Pro for Powerline 12
 #font = Tamsyn 8
-font = Terminus 8
-#font = Inconsolata-dz for Powerline 9
+#font = Terminus 8
+font = Inconsolata-dz for Powerline 9
 scrollback_lines = 1000
 search_wrap = true
 #icon_name = terminal
@@ -30,17 +31,18 @@ cursor_blink = system
 cursor_shape = block
 
 # $BROWSER is used by default
-browser = dwb
+browser = firefox
 
 # word characters used for word selection
 # (default if unset: all graphic non-punctuation/space characters)
 #word_chars = -A-Za-z0-9,./?%&#:_=+@~
 
 [colors]
-#foreground = #fcdccc
+foreground = #a4a6ab
 #foreground_bold = #ffffff
 #foreground_dim = #888888
-background = #000000
+#background = #000000
+background = #1a1a1a
 #cursor = #dcdccc
 
 # if unset, will reverse foreground and background
