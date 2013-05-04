@@ -1,0 +1,24 @@
+Config { font = "xft:Terminus:size=8:antialias=true"
+       , borderColor = "#000000"
+       , border = TopB
+       , bgColor = "#322725"
+       , fgColor = "#C5C8C6"
+       , position = Top
+       , lowerOnStart = False
+       , hideOnStart = False
+       , persistent = False
+       , commands = [ Run StdinReader
+                    , Run Network "enp6s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+    		        , Run Date "<fc=#8C9440><icon=/home/tobias/.icons/dzen/clock.xbm/></fc> [%b %d, %H:%M]" "date" 20
+                    , Run Com "mpc" ["|grep", "-v", "'%'", "|grep", "-v", "'n/a'"] "mpd" 10
+                    , Run Com "/home/tobias/bin/get-volume" [] "volume" 1
+                    , Run DiskU [("/", "<free>")] ["-L", "20", "-H", "50", "-m", "1", "-p", "3"] 20
+                    , Run BatteryP ["BAT0"] ["-t", "<fc=#de935f><icon=/home/tobias/.icons/dzen/bat_full_01.xbm/></fc> [<left>%]"] 600
+                    , Run Wireless "wlp3s0" ["-t", "<quality>% at <essid>" ] 100
+                    , Run Com "ip" ["a", "|grep", "'inet '", "|grep", "'wlp3s0'", "|cut", "-d' '", "-f6"] "ip" 100
+                    , Run Com "/home/tobias/bin/countMail.py" [] "mail" 200
+                    ]
+       , sepChar = "$"
+       , alignSep = "}{"
+       , template = " $StdinReader$ }{<fc=#cc6666><icon=/home/tobias/.icons/dzen/note.xbm/></fc> [$mpd$] :: <fc=#f0c674><icon=/home/tobias/.icons/dzen/mail.xbm/></fc> [$mail$] :: <fc=#b294bb><icon=/home/tobias/.icons/dzen/diskette.xbm/></fc> [$disku$] :: <fc=#de935f><icon=/home/tobias/.icons/dzen/wifi_01.xbm/></fc> [$wlp3s0wi$, $ip$] :: <fc=#b5bd68><icon=/home/tobias/.icons/dzen/spkr_01.xbm/></fc> [$volume$%] :: $battery$ :: $date$"
+       }
