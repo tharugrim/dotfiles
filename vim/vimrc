@@ -3,10 +3,11 @@
 " File:     .vimrc - VIM resource file
 " Author:   Tobias "Tharugrim" Patzl                    
 "
-" Version:  2.0 - 2013-04-09
+" Version:  2.1 - 2013-05-04
 "
 " Index:
 "   General:            
+"   Functions:
 "   VIM_interface:      
 "   Color_and_encoding: 
 "   File:               
@@ -26,6 +27,9 @@
 " Disable vi compatibility
 set nocompatible
 
+" Call pathogen
+call pathogen#infect()
+
 " Enable filetype plugins
 filetype plugin indent on
 
@@ -33,7 +37,7 @@ filetype plugin indent on
 set autoread
 
 " Set the shell
-set shell=/bin/zsh
+"set shell=/bin/zsh
 
 " Set the leader key
 let mapleader = ","
@@ -41,6 +45,23 @@ let g:mapleader = ","
 
 " Set the grep command
 set grepprg=grep\ -nH\ $*
+
+"""""""""""""""""""""""""""""""""""""""""""""""""                                    
+" => Functions
+"""""""""""""""""""""""""""""""""""""""""""""""""
+func! WordProcessorMode()                                                            
+    setlocal formatoptions=1                                                           
+    setlocal noexpandtab                                                               
+    map j gj                                                                           
+    map k gk                                                                           
+    setlocal spell spelllang=de_at,en_us                                               
+    set thesaurus+=/home/tobias/.vim/thesaurus/mthesaur.txt                            
+    set complete+=s                                                                    
+    set formatprg=par                                                                  
+    setlocal wrap                                                                      
+    setlocal linebreak                                                                 
+endfu                                                                                
+com! WP call WordProcessorMode()
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM interface
@@ -107,12 +128,13 @@ set ttyfast
 " Enable syntax highlighting
 syntax on
 
-colorscheme ir_black
 set background=dark
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
 
 " Set the pop-up menu colors
-hi Pmenu ctermfg=0 ctermbg=6 guibg=#444444
-hi PmenuSel ctermfg=7 ctermbg=4 guibg=#555555 guifg=#ffffff
+"hi Pmenu ctermfg=0 ctermbg=6 guibg=#444444
+"hi PmenuSel ctermfg=7 ctermbg=4 guibg=#555555 guifg=#ffffff
 
 " Fix unreadable colors in vimdiff
 highlight! link DiffText MatchParen
@@ -171,13 +193,20 @@ set formatoptions+=qrn1
 " Set how to do insert completion
 set completeopt=longest,menuone
 
+" Code folding settings
+set foldmethod=indent
+set foldlevel=99
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin configuration
 """""""""""""""""""""""""""""""""""""""""""""""""
+" Gundo toggle key
+map <leader>g :GundoToggle<CR>
+
 " LaTex
 let g:tex_flavor = "latex"
 let g:Tex_CompileRule = "pdf"
-let g:Tex_ViewRule_format  = "mupdf"
+let g:Tex_ViewRule_format  = "zathura"
 
 " clojure
 let g:vimclojure#HighlightBuiltins = 1
@@ -186,8 +215,14 @@ let vimclojure#WantNailgun = 1
 let vimclojure#NailgunClient = "ng"
 
 """""""""""""""""""""""""""""""""""""""""""""""""
-" => Edit key mappings
+" => Key mappings
 """""""""""""""""""""""""""""""""""""""""""""""""
+" Move between windows with CTRL+h/j/k/l                                             
+map <c-j> <c-w>j                                                                     
+map <c-k> <c-w>k                                                                     
+map <c-l> <c-w>l                                                                     
+map <c-h> <c-w>h 
+
 " Disable <F1> for help
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
