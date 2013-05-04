@@ -6,6 +6,7 @@
 #------------------------------
 # Prompt
 #------------------------------
+#source $HOME/.zsh/prompts/simple.zsh
 source $HOME/.zsh/prompts/simple.zsh
 
 #------------------------------

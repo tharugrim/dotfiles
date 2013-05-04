@@ -13,3 +13,5 @@ export GIT_EDITOR=$EDITOR
 
 #export PAGER="vimpager"
 #export PYTHONPATH=/usr/lib/python3.3/site-packages
+
+export CLOJURE_HOME=/usr/share/clojure

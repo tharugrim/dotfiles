@@ -12,13 +12,21 @@ alias ....="cd ../../.."
 
 alias cower="cower --color"
 
-alias pacman="sudo pacman-color"
-
-alias manpacman="man pacman"
-
 alias mutt-gmail="mutt -F /home/tobias/.mutt/muttrc-gmail"
 alias mutt-zoho="mutt -F /home/tobias/.mutt/muttrc-zoho"
 
 alias -g sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 
 # suffix aliases
+alias -s gz='aunpack'
+alias -s zip='aunpack'
+alias -s pdf=zathura
+alias -s git='git clone'
+
+alias -s png=sxiv
+alias -s jpg=sxiv
+alias -s jpeg=sxiv
+alias -s JPG=sxiv
+alias -s JPEG=sxiv
+
+alias -s xcf=gimp
