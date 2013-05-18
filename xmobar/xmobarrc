@@ -16,7 +16,7 @@ Config { font = "xft:Terminus:size=8:antialias=true"
                     , Run BatteryP ["BAT0"] ["-t", "<fc=#de935f><icon=/home/tobias/.icons/dzen/bat_full_01.xbm/></fc> [<left>%]"] 600
                     , Run Wireless "wlp3s0" ["-t", "<quality>% at <essid>" ] 100
                     , Run Com "ip" ["a", "|grep", "'inet '", "|grep", "'wlp3s0'", "|cut", "-d' '", "-f6"] "ip" 100
-                    , Run Com "/home/tobias/bin/countMail.py" [] "mail" 200
+                    , Run Com "cat" ["/home/tobias/mail/.count"] "mail" 2
                     ]
        , sepChar = "$"
        , alignSep = "}{"
