@@ -3,7 +3,7 @@
 #systemd --user &
 
 # set wallpaper
-feh --bg-scale ~/images/wallpapers/wallpaper-2477620.jpg &
+feh --bg-scale ~/Downloads/tf2_wallpaper/wallpaper-905577_smaller.jpg &
 
 # X settings
 xrdb -override ~/.Xresources & 
@@ -37,6 +37,12 @@ xmodmap ~/.xmodmap
 
 # set the cursor
 xsetroot -cursor_name left_ptr
+
+# watch the maildirs for changes and write them to a file
+/home/tobias/bin/cwatch -e create,delete -n -r -d /home/tobias/mail/ -c "/home/tobias/bin/countMail.py > /home/tobias/mail/.count" &
+
+# count the new mails 
+/home/tobias/bin/countMail.py > /home/tobias/mail/.count &
 
 # start the window manager
 exec xmonad
