@@ -11,6 +11,8 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
 
+import XMonad.Layout.NoBorders
+
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -164,7 +166,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 ------------------------------------------------------------------------
 -- Layouts:
 --
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = smartBorders $ tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -185,6 +187,8 @@ myManageHook = composeAll
     [ isFullscreen                  --> doFloat 
     , className =? "MPlayer"        --> doFloat
     , className =? "mpv"            --> doFloat
+    , className =? "Eclipse"            --> doFloat
+    , className =? "Aptana Studio 3"            --> doFloat
     , className =? "Gimp"           --> doFloat]
 
 ------------------------------------------------------------------------
