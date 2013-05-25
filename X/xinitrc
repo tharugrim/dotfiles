@@ -39,7 +39,7 @@ xmodmap ~/.xmodmap
 xsetroot -cursor_name left_ptr
 
 # watch the maildirs for changes and write them to a file
-/home/tobias/bin/cwatch -e create,delete -n -r -d /home/tobias/mail/ -c "/home/tobias/bin/countMail.py > /home/tobias/mail/.count" &
+/home/tobias/bin/cwatch -e move,create,delete -n -r -d /home/tobias/mail/ -c "/home/tobias/bin/countMail.py > /home/tobias/mail/.count" &
 
 # count the new mails 
 /home/tobias/bin/countMail.py > /home/tobias/mail/.count &
