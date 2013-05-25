@@ -3,8 +3,12 @@
 # Author:   Tobias "Tharugrim" Patzl                    
 #-------------------------------------------------------#
 
-alias ls="ls --color=auto -F"
+#alias ls="ls --color=auto -F"
 alias ll="ls --color=auto -lh"
+
+#alias cat='highlight -O ansi --failsafe'
+
+alias rm=safe-rm
 
 alias ..="cd .."
 alias ...="cd ../.."
