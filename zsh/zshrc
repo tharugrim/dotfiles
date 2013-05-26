@@ -7,7 +7,7 @@
 # Prompt
 #------------------------------
 #source $HOME/.zsh/prompts/simple.zsh
-source $HOME/.zsh/prompts/simple.zsh
+source $HOME/.zsh/prompts/simple_with_git.zsh
 
 #------------------------------
 # History
