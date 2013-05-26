@@ -36,8 +36,8 @@ if [[ $UID -ge 1000 ]]; then # normal user
     eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}'
     eval PR_USER_OP='${PR_GREEN}%#${PR_NO_COLOR}'
 elif [[ $UID -eq 0 ]]; then # root
-    eval P    R_USER='${PR_RED}%n${PR_NO_COLOR}'
-    eval PR_USER_OP='${PR_RED}%#${PR_NO   _COLOR}'
+    eval PR_USER='${PR_RED}%n${PR_NO_COLOR}'
+    eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
 fi
                 
 eval PR_HOST='${PR_WHITE}%M${PR_NO_COLOR}'
