@@ -22,8 +22,6 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:pacman:*' force-list always
 zstyle ':completion:*:*:pacman:*' menu yes select
 
-compdef _pacman pacman-color=pacman
-
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
 
