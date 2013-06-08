@@ -3,7 +3,7 @@
 # Author:   Tobias "Tharugrim" Patzl                    
 #-------------------------------------------------------#
 
-#alias ls="ls --color=auto -F"
+alias ls="ls --color=auto -F"
 alias ll="ls --color=auto -lh"
 
 #alias cat='highlight -O ansi --failsafe'
@@ -16,8 +16,8 @@ alias ....="cd ../../.."
 
 alias cower="cower --color"
 
-alias mutt-gmail="mutt -F /home/tobias/.mutt/muttrc-gmail"
-alias mutt-zoho="mutt -F /home/tobias/.mutt/muttrc-zoho"
+alias gmail="mutt -F /home/tobias/.mutt/muttrc-gmail"
+alias zoho="mutt -F /home/tobias/.mutt/muttrc-zoho"
 
 alias -g sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 
