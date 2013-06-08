@@ -44,7 +44,7 @@ browser = chromium
 foreground = #C5C8C6
 #foreground_bold = #
 #foreground_dim = #
-background = #1D1F21
+background = #131313
 cursor = #A4A6AB
 
 # default: reverse forground and background
