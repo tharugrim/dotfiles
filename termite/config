@@ -9,11 +9,15 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-#font = Anonymous Pro 11
-#font = DejaVu Sans Mono Book 10
+font = Hermit 8
+#font = Anonymous Pro for Powerline 8
+#font = Source Code Pro 9
+#font = DejaVu Sans Mono Book 9
 #font = Source Code Pro for Powerline 12
-font = Source Code Pro 9
-#font = Tamsyn 8
+#font = Source Code Pro 9
+#font = Tamsyn 9
+#font = Envy Code R
+#font = DejaVu Sans Mono 9
 #font = Terminus 8
 #font = Inconsolata-dz for Powerline 10
 scrollback_lines = 1000
@@ -22,51 +26,44 @@ search_wrap = true
 #geometry = 640x480
 
 # 0.0: opaque, 1.0: transparent
-transparency = 0.0
+transparency = 0.001
 pseudo_transparency = false
 
 # "system", "on" or "off"
-cursor_blink = on
+cursor_blink = system
 
 # "block", "underline" or "ibeam"
 cursor_shape = block
 
 # $BROWSER is used by default
-browser = chromium
+browser = dwb
 
 # word characters used for word selection
 # (default if unset: all graphic non-punctuation/space characters)
 #word_chars = -A-Za-z0-9,./?%&#:_=+@~
 
-# hybrid color scheme
-
 [colors]
-foreground = #C5C8C6
-#foreground_bold = #
-#foreground_dim = #
-background = #131313
-cursor = #A4A6AB
+foreground = #a5a5a5
+foreground_bold = #fedfed
+background = #080808
+#cursor = #dcdccc
 
-# default: reverse forground and background
-#highlight = #
-
-# hybrid color scheme
-color0 = #282a2e
-color1 = #A54242
-color2 = #8C9440
-color3 = #de935f
-color4 = #5F819D
-color5 = #85678F
-color6 = #5E8D87
-color7 = #707880
-color8 = #373b41
-color9 = #cc6666
-color10 = #b5bd68
-color11 = #f0c674
-color12 = #81a2be
-color13 = #b294bb
-color14 = #8abeb7
-color15 = #c5c8c6
+color0 = #343434
+color1 = #802828
+color2 = #909737
+color3 = #b27d12
+color4 = #6A9BFF
+color5 = #642337
+color6 = #196271
+color7 = #b3b3b3
+color8 = #424242
+color9 = #8a3232
+color10 = #9ca554
+color11 = #ddb62b
+color12 = #87AFFF
+color13 = #7d2d41
+color14 = #197885
+color15 = #b3b3b3
 
 [hints]
 #font = Monospace 12
