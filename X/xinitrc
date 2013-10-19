@@ -28,6 +28,9 @@ sxhkd &
 # set the screensaver
 xss physlock &
 
+# music player daemon
+mpd &
+
 # automount
 devmon &
 
