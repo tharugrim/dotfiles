@@ -6,15 +6,16 @@
 alias ls="ls --color=auto -F"
 alias ll="ls --color=auto -lh"
 
-#alias cat='highlight -O ansi --failsafe'
-
 alias rm=safe-rm
-
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-alias cower="cower --color"
+alias en-de="tw translate.google.com.en-de"
+alias de-en="tw translate.google.com.de-en"
+
+# remove reminder from bar
+alias reset-rem='echo RESET_REM > $PANEL_FIFO'
 
 alias gmail="mutt -F /home/tobias/.mutt/muttrc-gmail"
 alias zoho="mutt -F /home/tobias/.mutt/muttrc-zoho"

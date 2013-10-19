@@ -4,7 +4,6 @@
 #-------------------------------------------------------#
 
 bindkey '^r' history-incremental-search-backward
-
 bindkey "$terminfo[kcbt]" reverse-menu-complete
 
 

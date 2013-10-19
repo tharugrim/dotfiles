@@ -4,6 +4,7 @@
 #-------------------------------------------------------#
 
 export PATH="${PATH}:${HOME}/bin"
+export GOPATH=~/go
 
 export BROWSER="dwb"
 export EDITOR="vim"
@@ -11,7 +12,7 @@ export PAGER="less"
 export SUDO_EDITOR=$EDITOR
 export GIT_EDITOR=$EDITOR
 
-#export PAGER="vimpager"
-#export PYTHONPATH=/usr/lib/python3.3/site-packages
+export PANEL_FIFO=/tmp/panel-fifo
 
-export CLOJURE_HOME=/usr/share/clojure
+GPG_TTY=`tty`
+export GPG_TTY
