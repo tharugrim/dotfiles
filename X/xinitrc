@@ -1,48 +1,63 @@
 #!/bin/sh
-# initialize user session
-#systemd --user &
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
+
+# monitor settings
+out=$(xrandr)
+if [[ $out == *HDMI* ]]
+then
+    xrandr --output LVDS1 --off
+fi
+
+# enable compositing
+compton -cCGfF -o 0.38 -O 200 -I 200 -t 0.02 -l 0.02 -r 3.2 -D2 -m 0.88 &
 
 # set wallpaper
-feh --bg-scale ~/Downloads/tf2_wallpaper/wallpaper-905577_smaller.jpg &
+feh --bg-fill ~/images/wallpaper/wallpaper-59928.png &
 
 # X settings
 xrdb -override ~/.Xresources & 
 
-# set the keyboard map
-setxkbmap de &
-
-# shortcuts
+# shortcuts 
 sxhkd &
 
 # set the screensaver
-xss slock &
+xss physlock &
 
 # automount
-devmon   &
-
-# Music Player Daemon
-mpd &
-
-# mpdscribble daemon
-mpdscribble -D &
+devmon &
 
 # when to start the screensaver
 xset s 900 & # sec
 
-# set ls colors
-eval `dircolors -b ~/.dircolors.custom` 
-
-# custom keyboard settings
-xmodmap ~/.xmodmap
-
 # set the cursor
 xsetroot -cursor_name left_ptr
 
-# watch the maildirs for changes and write them to a file
-/home/tobias/bin/cwatch -e move,create,delete -n -r -d /home/tobias/mail/ -c "/home/tobias/bin/countMail.py > /home/tobias/mail/.count" &
+# start remind daemon
+remind '-kecho REM%s > $PANEL_FIFO' -z .reminders &
 
 # count the new mails 
 /home/tobias/bin/countMail.py > /home/tobias/mail/.count &
 
+# start gpg-agent
+eval $(gpg-agent --daemon) &
+
+# set wm name for compitability reasons
+wmname LG3D &
+
+# don't use HDMI for sound
+pactl set-card-profile 0 output:analog-stereo+input:analog-stereo
+
+# create new PANEL_FIFO
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+# custom keyboard settings
+xmodmap /home/tobias/.xmodmap &
+
 # start the window manager
-exec xmonad
+exec bspwm -s "$PANEL_FIFO" -p W
