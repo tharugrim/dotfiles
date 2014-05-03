@@ -35,10 +35,10 @@ export PR_NO_COLOR=$'%{\e[0m%}'
 
 if [[ $UID -ge 1000 ]]; then # normal user
     eval PR_USER='${PR_YELLOW}%n${PR_NO_COLOR}'
-    eval PR_USER_OP='${PR_YELLOW}::${PR_NO_COLOR}'
+    eval PR_USER_OP='${PR_YELLOW}:${PR_NO_COLOR}'
     PROMPT=$'$PR_BLACK%~ ${vcs_info_msg_0_} $PR_USER_OP '
 elif [[ $UID -eq 0 ]]; then # root
     eval PR_USER='${PR_RED}%n${PR_NO_COLOR}'
-    eval PR_USER_OP='${PR_RED}::${PR_NO_COLOR}'
+    eval PR_USER_OP='${PR_RED}:${PR_NO_COLOR}'
     PROMPT=$'$PR_RED%~ ${vcs_info_msg_0_} $PR_USER_OP '
 fi

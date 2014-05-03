@@ -6,37 +6,40 @@
 #------------------------------
 # Prompt
 #------------------------------
-#source $HOME/.zsh/prompts/simple.zsh
-#source $HOME/.zsh/prompts/simple_with_git.zsh
-source $HOME/.zsh/prompts/minimal_git.zsh
+#source $ZDOTDIR/prompts/simple.zsh
+#source $ZDOTDIR/prompts/simple_with_git.zsh
+source $ZDOTDIR/prompts/minimal_git.zsh
 
 #------------------------------
 # History
 #------------------------------
-source $HOME/.zsh/history.zsh
+source $ZDOTDIR/history.zsh
 
 #------------------------------
 # Environment
 #------------------------------
-source $HOME/.zsh/environment.zsh
+source $ZDOTDIR/environment.zsh
 
 #-----------------------------
 # Keybindings
 #-----------------------------
-source $HOME/.zsh/keybindings.zsh
+source $ZDOTDIR/keybindings.zsh
 
 #------------------------------
 # Functions
 #------------------------------
+source $ZDOTDIR/functions/note.zsh
+source $ZDOTDIR/functions/dear-diary.zsh
+
 #------------------------------
 # Aliases
 #------------------------------
-source $HOME/.zsh/aliases.zsh
+source $ZDOTDIR/aliases.zsh
 
 #------------------------------
 # zstyles
 #------------------------------
-source $HOME/.zsh/zstyles.zsh
+source $ZDOTDIR/zstyles.zsh
 
 #------------------------------
 # Colors 
@@ -54,12 +57,15 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 # Modules 
 #------------------------------
 # Syntax highlighting
-source $HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # init fasd
-eval "$(fasd --init auto)"
+#eval "$(fasd --init auto)"
 
 # command not found hook
 source /usr/share/doc/pkgfile/command-not-found.zsh
+
+# OPAM configuration
+source /home/tobias/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 
