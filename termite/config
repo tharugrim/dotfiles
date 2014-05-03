@@ -9,7 +9,9 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Hermit 8
+
+font = CMU Typewriter Text 12 
+#font = Hermit 8
 #font = Anonymous Pro for Powerline 8
 #font = Source Code Pro 9
 #font = DejaVu Sans Mono Book 9
@@ -20,13 +22,14 @@ font = Hermit 8
 #font = DejaVu Sans Mono 9
 #font = Terminus 8
 #font = Inconsolata-dz for Powerline 10
+
 scrollback_lines = 1000
 search_wrap = true
 #icon_name = terminal
 #geometry = 640x480
 
 # 0.0: opaque, 1.0: transparent
-transparency = 0.001
+#transparency = 0.001
 pseudo_transparency = false
 
 # "system", "on" or "off"
@@ -43,27 +46,27 @@ browser = dwb
 #word_chars = -A-Za-z0-9,./?%&#:_=+@~
 
 [colors]
-foreground = #a5a5a5
+foreground = #bbbbbb
 foreground_bold = #fedfed
-background = #080808
+background = #161616
 #cursor = #dcdccc
 
-color0 = #343434
-color1 = #802828
-color2 = #909737
-color3 = #b27d12
-color4 = #6A9BFF
-color5 = #642337
-color6 = #196271
-color7 = #b3b3b3
-color8 = #424242
-color9 = #8a3232
-color10 = #9ca554
-color11 = #ddb62b
-color12 = #87AFFF
-color13 = #7d2d41
-color14 = #197885
-color15 = #b3b3b3
+color0 = #1a1a1a
+color8 = #404040
+color1 = #d75f5f
+color9 = #EA8484
+color2 = #87af5f
+color10 = #C7F09F
+color3 = #ffaf5f
+color11 = #FFCC9A
+color4 = #87afd7
+color12 = #a5caef
+color5 = #8787af
+color13 = #A6A6DE
+color6 = #5f8787
+color14 = #69b2b2
+color7 = #808080
+color15 = #d7d7d7
 
 [hints]
 #font = Monospace 12
