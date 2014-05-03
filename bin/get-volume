@@ -1,8 +1,0 @@
-#!/bin/dash
-ponymix is-muted
-if [ $? -eq 0 ]
-then
-    echo "-1";
-else
-    ponymix get-volume
-fi
