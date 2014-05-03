@@ -6,45 +6,29 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-# monitor settings
-out=$(xrandr)
-if [[ $out == *HDMI* ]]
-then
-    xrandr --output LVDS1 --off
-fi
-
-# enable compositing
-compton -cCGfF -o 0.38 -O 200 -I 200 -t 0.02 -l 0.02 -r 3.2 -D2 -m 0.88 &
+# music player daemon
+mpd &
 
 # set wallpaper
-feh --bg-fill ~/images/wallpaper/wallpaper-59928.png &
+feh --bg-fill ~/images/wallpaper/9ncYySC.jpg &
 
 # X settings
 xrdb -override ~/.Xresources & 
 
+# start low battery notification daemon
+battery-thingy 15 "mpv '/home/tobias/videos/Meshuggah - Bleed 8-bit-5PJ3fGMgGgY.flv'" 30 BAT0  &
+
 # shortcuts 
 sxhkd &
 
-# set the screensaver
-xss physlock &
-
-# music player daemon
-mpd &
-
 # automount
-devmon &
-
-# when to start the screensaver
-xset s 900 & # sec
+devmon --exec-on-drive 'open-mount "%d" "%f" "%l"' &
 
 # set the cursor
 xsetroot -cursor_name left_ptr
 
 # start remind daemon
-remind '-kecho REM%s > $PANEL_FIFO' -z .reminders &
-
-# count the new mails 
-/home/tobias/bin/countMail.py > /home/tobias/mail/.count &
+#remind '-kecho REM%s > $PANEL_FIFO' -z .reminders &
 
 # start gpg-agent
 eval $(gpg-agent --daemon) &
@@ -55,12 +39,8 @@ wmname LG3D &
 # don't use HDMI for sound
 pactl set-card-profile 0 output:analog-stereo+input:analog-stereo
 
-# create new PANEL_FIFO
-[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
-mkfifo "$PANEL_FIFO"
-
 # custom keyboard settings
 xmodmap /home/tobias/.xmodmap &
 
 # start the window manager
-exec bspwm -s "$PANEL_FIFO" -p W
+exec herbstluftwm
