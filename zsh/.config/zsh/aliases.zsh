@@ -4,7 +4,13 @@
 
 alias e='$HOME/bin/switch-to-emacsclient'
 
-alias ls="ls --color=auto -F"
+if [[ $OSTYPE == linux* ]]
+then
+	alias ls="ls --color=auto -F"
+elif [[ $OSTYPE == freebsd* ]]
+then
+	alias ls="ls -G"
+fi
 
 #alias rm=safe-rm
 alias ..="cd .."

@@ -21,4 +21,4 @@ export BAR_FOREGROUND="#FFFEFEFE"
 export BAR_FONT="-*-profont-*-*-*-*-11-*-*-*-*-*-*-*"
 
 # perl local::lib
-eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"
+#eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"

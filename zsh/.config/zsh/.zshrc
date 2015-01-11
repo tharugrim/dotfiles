@@ -2,8 +2,6 @@
 # File:     .zshrc   ZSH resource file                  
 #-------------------------------------------------------#
 
-export ZDOTDIR=$HOME/.config/zsh/
-
 #------------------------------
 # Prompt
 #------------------------------
@@ -54,14 +52,20 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 # Modules 
 #------------------------------
 # Syntax highlighting
-source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# command not found hook
-source /usr/share/doc/pkgfile/command-not-found.zsh
+if [ -f /etc/arch-release ]
+then
+	# command not found hook
+	source /usr/share/doc/pkgfile/command-not-found.zsh
+fi
 
-# OPAM configuration
-source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+if [ -f $HOME/.opam/opam-init/init.zsh ]
+then
+	# OPAM configuration
+	source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+fi
 
 # dircolors
-eval `dircolors $HOME/.config/dircolors/dircolors.custom`
+where dircolor && eval `dircolors $HOME/.config/dircolors/dircolors.custom`
 
