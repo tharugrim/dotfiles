@@ -2,7 +2,7 @@
 # File:     history.zsh   ZSH history settings                  
 #-------------------------------------------------------#
 
-HISTFILE="${ZDOTDIR}/zsh_history"
+HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=2000
 SAVEHIST=1000
 
