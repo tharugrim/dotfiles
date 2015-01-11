@@ -1,0 +1,155 @@
+ls .config/bspwm/bspwmrc
+vim .config/bspwm/bspwmrc
+rm -rf .config/bspwm
+man 1 zshoptions
+note
+dear-diary
+ls .zshrc
+: 1420974101:0;ls
+ls
+vim .config/termite/config
+cd do
+cd dotfiles
+ls
+cd X
+ls
+man stow
+cd X
+ls
+mv xinitrc .xinitrc
+..
+stow X
+ls
+cd ncmpcpp
+ls
+vim config
+vim config
+mkdir .ncmpcpp
+mv config .ncmpcpp
+ls
+vim bindings
+ls
+mv bindings .ncmpcpp
+vim error.log
+rm error.log
+ls
+ls -a
+..
+ls
+stow ncmpcpp
+ls
+vim README.md
+stow README.md
+cd bspwm
+ls
+vim bspwmrc
+vim bspwmrc
+mkdir .config/bspwm
+mkdir .config/bspwm -p
+mv bspwmrc .config/bspwm
+ls
+vim .config/bspwm/bspwmrc
+..
+ls
+cd zsh
+ls
+vim zsh_history
+mkdir .config/zsh -p
+mv *.zsh .config/zsh
+ls
+mv functions .config/zsh
+mv plugins .config/zsh
+mv prompts .config/zsh
+ls
+mv zshrc .config/zsh
+ls
+cd .config/zsh
+ls
+vim aliases.zsh
+vim environment.zsh
+vim history.zsh
+vim keybindings.zsh
+vim zshrc
+ls
+vim zs
+vim zstyles.zsh
+vim functions/callvim.zsh
+rm functions/callvim.zsh
+vim functions/dear-diary.zsh
+vim functions/man-colors_blue-x.sh
+vim functions/note.zsh
+vim functions/x.zsh
+rm functions/x.zsh
+vim functions/x2termite.zsh
+cd plugins
+ls
+..
+cd prompts
+ls
+vim 
+vim minimal_git.zsh
+vim simple-red.zsh
+vim simple_with_git.zsh
+vim simple.zsh
+ls
+..
+ag tharu
+ag tobi
+vim functions/dear-diary.zsh
+vim zshrc
+ls
+..
+ls
+..
+..
+ls
+stow zsh
+ls
+stow zsh
+ls
+cd zsh
+lls
+ls
+vim .zshrc
+cp .zshrc .config/zsh/
+rm .zshrc
+ls
+where ZDOTDIR
+..
+vim /etc/zsh/zprofile
+vim /etc/profile
+vim /etc/pam.d
+cd /
+ls
+vim /etc
+vim /etc
+: 1420974448:16;man stow
+emacs --version
+e bla.html
+e bla.html
+: 1420975130:0;ls .vimrc
+: 1420975138:0;rm .vimrc
+: 1420975183:1;vim
+: 1420974993:5;vim .vim
+: 1420975000:0;cd .vim
+: 1420975000:0;ls
+: 1420975016:60;vim vimrc
+: 1420975077:0;ls
+: 1420975081:0;ls UltiSnips
+: 1420975084:1;vim colors
+: 1420975088:0;vim UltiSnips/c.snippets
+: 1420975090:0;ls
+: 1420975093:0;ls syntax
+: 1420975099:3;vim scripts.vim
+: 1420975104:1;vim README.md
+: 1420975108:0;ls bundle
+: 1420975109:0;ls
+: 1420975111:0;..
+: 1420975116:0;cd .vim
+: 1420975163:0;ls
+: 1420975195:0;vim
+: 1420975197:0;ls
+: 1420975203:1;rm -rf .git
+: 1420975205:0;ls
+: 1420975210:0;rm .gitignore
+: 1420975210:0;ls
