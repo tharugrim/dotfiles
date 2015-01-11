@@ -67,5 +67,5 @@ then
 fi
 
 # dircolors
-where dircolor && eval `dircolors $HOME/.config/dircolors/dircolors.custom`
+where dircolor > /dev/null && eval `dircolors $HOME/.config/dircolors/dircolors.custom`
 
